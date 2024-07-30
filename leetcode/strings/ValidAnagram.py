@@ -15,7 +15,7 @@ Example 2:
 Input: s = "rat", t = "car"
 Output: false
 
- https://leetcode.com/problems/valid-anagram/
+
 
 
 """

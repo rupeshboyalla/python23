@@ -19,15 +19,14 @@ from typing import List
 def rearrange(nums: List[int]):
     left, right = 0, len(nums) - 1
     result = [0] * len(nums)
-    flag = True
+
     for i in range(len(nums)):
-        if flag:
+        if i % 2 == 0:
             result[i] = nums[right]
             right -= 1
         else:
             result[i] = nums[left]
             left += 1
-        flag = bool(1 - flag)
     return result
 
 

@@ -31,4 +31,4 @@ def canPermutePalindrome(s: str) -> bool:
         if value % 2 != 0:
             count += 1
     return count == countOdd
-print(canPermutePalindrome("aab"))
+print(canPermutePalindrome("carerac"))

@@ -41,8 +41,7 @@ from typing import List
 #             return False.
 #     return True
 
-#method 2
-
+#method 2995
 def longestCommonPrefix2(strs: List[str]) -> str:
     minLen = len(min(strs, key=len))
     minStr = strs[0][:minLen]

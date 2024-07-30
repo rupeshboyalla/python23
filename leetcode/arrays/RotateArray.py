@@ -22,18 +22,15 @@ rotate 2 steps to the right: [3,99,-1,-100]
 from typing import List
 
 def rotate(nums: List[int], k: int) -> None:
+    rotateArray(nums, 0, k)
+    rotateArray(nums, k+1, len(nums)-1)
     rotateArray(nums, 0, len(nums)-1)
-    print(nums)
-    rotateArray(nums,0, k-1)
-    print(nums)
-    rotateArray(nums, k, len(nums)-1)
-    print(nums)
-
+    return nums
 def rotateArray(nums, start, end):
     while start <= end:
         nums[start], nums[end] = nums[end], nums[start]
         start += 1
         end -= 1
 
-rotate([1,2,3,4,5,6,7], 3)
 
+print(rotate([1,2,3,4,5,6,7], 3))

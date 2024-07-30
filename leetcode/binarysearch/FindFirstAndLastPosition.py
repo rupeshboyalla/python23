@@ -40,9 +40,9 @@ def search(nums:List[int], target:int, isFirstOccurrence: bool) -> int:
                 right = mid - 1
             else:
                 left = mid + 1
-        elif nums[mid] > target:
-            right = mid - 1
-        else:
+        elif target > nums[mid]:
             left = mid + 1
+        else:
+            right = mid - 1
     return result
 print(searchRange( [5,7,7,8,8,10], 8))

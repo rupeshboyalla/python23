@@ -21,18 +21,19 @@ Output: [0,0,9,0,0]
 
 from typing import List
 
-
 def productExceptSelf(nums: List[int]) -> List[int]:
     length = len(nums)
-    leftArr, rightArr, result = [0] * length, [0] * length, [0] * length
-    leftArr[0] = 1
+    leftProd = [1] * length
+    rightProd = [1]* length
+    result =[1] * length
     for i in range(1, length):
-        leftArr[i] = leftArr[i - 1] * nums[i-1]
-    rightArr[length - 1] = 1
-    for i in reversed(range(length-1)):
-        rightArr[i] = rightArr[i+1] * nums[i+1]
+        leftProd[i] = leftProd[i-1] * nums[i-1]
+    for i in reversed(range(length - 1)):
+        rightProd[i] = rightProd[i+1]*nums[i+1]
     for i in range(length):
-        result[i] = rightArr[i] * leftArr[i]
+        result[i] = leftProd[i] * rightProd[i]
     return result
 
-print(productExceptSelf( [1,2,3,4]))
+
+
+print(productExceptSelf([1,2,3,4]))

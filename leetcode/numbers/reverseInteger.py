@@ -21,21 +21,18 @@ Output: 21
 """
 
 
-def reverse(x: int) -> int:
+def reverseNumber(n: int):
+    isNeg = False
+    if n < 0:
+        isNeg = True
+        n = 0 - n
     result = 0
-    isNegative = False
-    if x == 0:
-        return x
-    if x < 0:
-        isNegative = True
-        x = abs(x)
-    while x != 0:
-        result = (result * 10) + (x % 10)
-        x = x // 10
-    if isNegative:
-        return result * -1
-    else:
-        return result
+    while n > 0:
+        result = result * 10 + n % 10
+        n = n // 10
+    if isNeg:
+        return 0 - result
+    return result
 
 
-print(reverse(123))
+print(reverseNumber(-35))

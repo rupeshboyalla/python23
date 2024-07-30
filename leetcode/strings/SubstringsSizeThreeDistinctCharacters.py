@@ -30,11 +30,11 @@ def countGoodSubstrings(s: str, k: int) -> int:
     charVisited = set()
     left = 0
     result = 0
-    for right in range(len(s)):
-        while s[right] in charVisited or len(charVisited) >= k:
+    for i in range(len(s)):
+        while s[i] in charVisited or len(charVisited) >= k:
             charVisited.remove(s[left])
             left += 1
-        charVisited.add(s[right])
+        charVisited.add(s[i])
         if len(charVisited) == k:
             result += 1
     return result

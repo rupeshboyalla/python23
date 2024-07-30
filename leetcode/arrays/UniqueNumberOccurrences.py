@@ -26,8 +26,7 @@ def uniqueOccurrences(arr: List[int]) -> bool:
     orderMap = {}
     count = 0
     for ele in arr:
-        if ele in orderMap:
-            orderMap[ele] = 1 + orderMap.get(ele, 0)
+        orderMap[ele] = 1 + orderMap.get(ele, 0)
     for value in orderMap.values():
         if count > 1:
             return False

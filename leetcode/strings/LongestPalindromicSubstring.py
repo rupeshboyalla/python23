@@ -22,30 +22,32 @@ Output: "bb"
 
 """
 
+# refer to neetcode - https://www.youtube.com/watch?v=XYQecbcd6_c
 
 def longestPalindrome(s: str) -> str:
-    left, right = 0, len(s) - 1
-    result = ""
-    while left < right:
-        if isPalindrome(s[left:right]):
-            if len(result) < len(s[left:right]):
-                result = s[left:right]
-            left += 1
-            right -= 1
-        else:
-            right -= 1
+    result = 0
+    resultLen = 0
+    for i in range(len(s)):
+        # odd palindrome
+        left, right = i , i
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            if right - left +1 > resultLen:
+                result = s[left:right+1]
+                resultLen = right - left +1
+            left -=1
+            right +=1
+
+        left, right = i, i+1
+        while left >= 0 and right < len(s) and s[left] == s[right]:
+            if right - left +1 > resultLen:
+                result = s[left:right+1]
+                resultLen = right - left +1
+            left -=1
+            right +=1
+
     return result
 
 
-def isPalindrome(s: str) -> bool:
-    left, right = 0, len(s) - 1
-    while left < right:
-        if s[left] != s[right]:
-            return False
-        else:
-            left += 1
-            right -= 1
-    return True
 
 
-print(longestPalindrome("babad"))
+print(longestPalindrome("cbbd"))

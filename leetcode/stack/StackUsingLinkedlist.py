@@ -1,98 +1,54 @@
 class Node:
-
-    # Class to create nodes of linked list
-    # constructor initializes node automatically
     def __init__(self, data):
         self.data = data
         self.next = None
 
-
 class Stack:
-
-    # head is default NULL
     def __init__(self):
         self.head = None
 
-    # Checks if stack is empty
-    def isempty(self):
-        if self.head:
+    def is_empty(self):
+        if self.head is None:
             return True
-        else:
-            return False
+        return False
 
-    # Method to add data to the stack
-    # adds to the start of the stack
     def push(self, data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
 
-        if self.head:
-            self.head = Node(data)
-
-        else:
-            newNode = Node(data)
-            newNode.next = self.head
-            self.head = newNode
-
-    # Remove element that is the current head (start of the stack)
     def pop(self):
-
-        if self.isempty():
+        if self.is_empty():
             return None
+        popnode = self.head
+        popnode.next = None
+        self.head = self.head.next
+        return popnode.data
 
-        else:
-            # Removes the head node and makes
-            # the preceding one the new head
-            poppedNode = self.head
-            self.head = self.head.next
-            poppedNode.next = None
-            return poppedNode.data
-
-    # Returns the head node data
     def peek(self):
-
-        if self.isempty():
+        if self.is_empty():
             return None
+        return self.head.data
 
-        else:
-            return self.head.data
-
-    # Prints out the stack
     def display(self):
+        current = self.head
+        while current:
+            print(current.data, end=" ")
+            current = current.next
 
-        iternode = self.head
-        if self.isempty():
-            print("Stack Underflow")
+# Example usage:
+stack = Stack()
+stack.push(1)
+stack.push(2)
+stack.push(3)
+stack.push(4)
 
-        else:
+print("Current stack:")
+stack.display()
 
-            while iternode != None:
-                print(iternode.data, end="")
-                iternode = iternode.next
-                if iternode != None:
-                    print(" -> ", end="")
-            return
+print("Popped element:", stack.pop())
 
+print("Stack after popping:")
+stack.display()
 
-# Driver code
-if __name__ == "__main__":
-    MyStack = Stack()
-
-    MyStack.push(11)
-    MyStack.push(22)
-    MyStack.push(33)
-    MyStack.push(44)
-
-    # Display stack elements
-    MyStack.display()
-
-    # Print top element of stack
-    print("\nTop element is ", MyStack.peek())
-
-    # Delete top elements of stack
-    MyStack.pop()
-    MyStack.pop()
-
-    # Display stack elements
-    MyStack.display()
-
-    # Print top element of stack
-    print("\nTop element is ", MyStack.peek())
+print("Peek on stack:", stack.peek())

@@ -18,7 +18,7 @@ class Stack:
             return False
 
     def push(self, data):
-        if self.head == None:
+        if self.isEmpty():
             self.head = Node(data)
         else:
             newNode = Node(data)

@@ -8,6 +8,7 @@ class MyStack:
         self.q2 = deque()
 
     def push(self, x: int) -> None:
+
         self.q2.append(x)
         while self.q1:
             self.q2.append(self.q1.popleft())
@@ -20,7 +21,7 @@ class MyStack:
     def top(self) -> int:
         if self.q1:
             return self.q1[0]
-        return None
+        return -1
 
     def empty(self) -> bool:
         return len(self.q1) == 0

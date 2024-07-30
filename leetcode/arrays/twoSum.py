@@ -31,5 +31,12 @@ def twoSum(nums: List[int], target: int) -> List[int]:
     for i in range(len(nums)):
         if target - nums[i] in lookupTable:
             return [lookupTable.get(target - nums[i]), i]
-        else:
-            lookupTable[nums[i]] = i
+        lookupTable[nums[i]] = i
+
+
+
+
+
+
+
+print(twoSum([3,2,4], 6))

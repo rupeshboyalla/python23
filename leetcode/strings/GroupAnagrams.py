@@ -22,9 +22,10 @@ Output: [["a"]]
 from collections import defaultdict
 from typing import List
 
-# https://www.youtube.com/watch?v=jCZnHfDoAXE
+# f
 def groupAnagrams(strs: List[str]) -> List[List[str]]:
     lookupTable = defaultdict(list)
+
     for s in strs:
         key= "".join(sorted(list(s)))
         lookupTable[key].append(s)

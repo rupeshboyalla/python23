@@ -20,15 +20,18 @@ class ValidParentheses:
             elif char == ')':
                 if stack and stack[-1] != '(':
                     return False
+                else:
+                    stack.pop()
             elif char == '}':
                 if stack and stack[-1] != '{':
                     return False
+                else:
+                    stack.pop()
             elif char == ']':
-                print(stack)
-                print(stack[-1] != '[')
-
                 if stack and stack[-1] != '[':
                     return False
+                else:
+                    stack.pop()
             else:
                 return False
         return len(stack) == 0
@@ -37,18 +40,18 @@ class ValidParentheses:
 
     def isValidLeetcode(self, s):
         stack = []
-        closeToOpen = {')': '(', ']': '[', '}': '{'}
-        for c in s:
-            if c in closeToOpen:
-                if stack and stack[-1] == closeToOpen[c]:
+        matching_para = {')': '(', ']': '[', '}': '{'}
+        for char in s:
+            if char in matching_para:
+                if stack and stack[-1] == matching_para[char]:
                     stack.pop()
                 else:
                     return False
             else:
-                stack.append(c)
+                stack.append(char)
         return len(stack) == 0
 
 
 obj = ValidParentheses()
-print(obj.isValid("]"))
+print(obj.isValidLeetcode("]"))
 

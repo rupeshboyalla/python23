@@ -20,7 +20,7 @@ def testResultParsing(parseTestResults: tuple):
     for ele in parseTestResults:
         lookUpTable[ele[0]].append(ele[1])
     for key, value in lookUpTable.items():
-        print(f"test result: {key} count: {len(value)}, test names: {value}")
+        print(f"test result: {key} --> {len(value)}, test names: {value}")
 
 
 testResults = [
